@@ -16,40 +16,46 @@ type PositionVector = {
 type MouserOptions = {
   restState?: {x: number, y: number},
   refreshRate?: number,
-  reference?: Reference
+  reference?: Reference,
+  listeners?: ((v: PositionVector) => void)[]
 }
 
 class Mouser {
   private static _instance: Mouser
+
+  private listeners: any[]
 
   private reference: Reference
   private refreshRate: number
   private eventListeners: EventObject[] = []
   private restState: PositionVector
 
-  public vector: PositionVector
+  private vector: PositionVector
 
-  public constructor ({
+  private constructor ({
     reference = window,
     restState = {
       x: 0,
       y: 0
     },
-    refreshRate = 0
+    refreshRate = 0,
+    listeners = []
   }: MouserOptions = {}) {
     this.reference = reference
     this.restState = restState
     this.refreshRate = refreshRate
     this.vector = this.restState
+    this.listeners = listeners
 
     this.registerEvents()
   }
 
+  // SINGLETON
   public static Instance (params: MouserOptions) {
-    // Do you need arguments? Make it a regular static method instead.
     return this._instance || (this._instance = new this(params))
   }
 
+  // PUBLIC METHODS
   public addReference (el: Reference) {
     this.reference = el
   }
@@ -58,8 +64,18 @@ class Mouser {
     this.reference = window
   }
 
+  public addListener (listener: (v: PositionVector) => void) {
+    this.listeners.push(listener)
+  }
+
   public removeEventListeners () {
     this.clearEvents(this.eventListeners)
+  }
+
+  private dispatchEvents (v: PositionVector) {
+    return this.listeners.forEach(listener => {
+      listener(v)
+    })
   }
 
   private setEventList () {
@@ -86,11 +102,13 @@ class Mouser {
     if (this.shouldUpdate()) {
       // console.log(getMouseOverVector(ev))
       this.vector = getMouseOverVector(ev)
+      this.dispatchEvents(this.vector)
     }
   }
 
   private setRestState () {
     this.vector = this.restState
+    this.dispatchEvents(this.vector)
   }
 
   private addEvent (event: EventObject) {
