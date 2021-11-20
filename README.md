@@ -1,2 +1,2 @@
 # mouser
-A Javascript helper for mouseover animations
+A Javascript helper for mouse move animations
