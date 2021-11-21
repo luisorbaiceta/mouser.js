@@ -1,6 +1,6 @@
 import { getMouseOverVector } from './computations'
 
-export type Reference<T extends HTMLElement = HTMLElement> = Window | T
+export type Reference<T extends HTMLElement = HTMLElement> = Document | Window | T
 
 type EventObject<T extends HTMLElement = HTMLElement> = {
   element: Reference<T>,
@@ -84,16 +84,26 @@ class Mouser {
   private setEventList () {
     this.eventListeners = [
       {
-        element: this.reference || window,
-        type: 'mouseleave',
-        function: this.setRestState.bind(this)
-      },
-      {
-        element: this.reference || window,
+        element: this.reference,
         type: 'mousemove',
         function: this.updateVector.bind(this)
       }
     ]
+
+    // handle mouse leave for window
+    if (this.reference instanceof Window) {
+      this.eventListeners.push({
+        element: document,
+        type: 'mouseleave',
+        function: this.setRestState.bind(this)
+      })
+    } else {
+      this.eventListeners.push({
+        element: this.reference,
+        type: 'mouseleave',
+        function: this.setRestState.bind(this)
+      })
+    }
   }
 
   private registerEvents () {
@@ -103,7 +113,6 @@ class Mouser {
 
   private updateVector (ev: MouseEvent) {
     if (this.shouldUpdate()) {
-      // console.log(getMouseOverVector(ev))
       this.vector = getMouseOverVector(ev)
       this.dispatchEvents(this.vector)
     }

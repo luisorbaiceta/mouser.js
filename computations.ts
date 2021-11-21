@@ -18,13 +18,19 @@ function getRefSize (el: Reference) {
       y: el.innerHeight
     }
   }
+  if (el instanceof Document) {
+    return {
+      x: el.body.clientWidth,
+      y: el.body.clientHeight
+    }
+  }
   return {
     x: el.offsetWidth,
     y: el.offsetHeight
   }
 }
 function getCursorPosition (ev: MouseEvent, el: Reference) {
-  if (el instanceof Window) {
+  if (el instanceof Window || el instanceof Document) {
     return {
       x: ev.clientX,
       y: ev.clientY
