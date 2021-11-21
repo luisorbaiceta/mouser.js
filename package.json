@@ -1,10 +1,12 @@
 {
   "name": "mouser.js",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "A Javascript helper for mouseover animations",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "node index.js",
+    "prepublish": "tsc",
     "test": "mocha"
   },
   "repository": {

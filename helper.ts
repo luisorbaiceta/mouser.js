@@ -1,3 +1,5 @@
+import type { PositionVector } from './index'
+
 // Helper functions
 type Helper = {
     el: HTMLDivElement,

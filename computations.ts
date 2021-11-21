@@ -1,7 +1,9 @@
+import type { Reference } from './index'
+
 // return current mouse position relative to reference element in listener
 function getMouseOverVector (event: MouseEvent) {
-  const position = getCursorPosition(event, event.currentTarget)
-  const dimension = getRefSize(event.currentTarget)
+  const position = getCursorPosition(event, event.currentTarget as HTMLElement)
+  const dimension = getRefSize(event.currentTarget as HTMLElement)
 
   return {
     x: (Math.round((position.x / dimension.x) * 100) / 100),
@@ -9,7 +11,7 @@ function getMouseOverVector (event: MouseEvent) {
   }
 }
 
-function getRefSize (el) {
+function getRefSize (el: Reference) {
   if (el instanceof Window) {
     return {
       x: el.innerWidth,
@@ -21,7 +23,7 @@ function getRefSize (el) {
     y: el.offsetHeight
   }
 }
-function getCursorPosition (ev: MouseEvent, el) {
+function getCursorPosition (ev: MouseEvent, el: Reference) {
   if (el instanceof Window) {
     return {
       x: ev.clientX,

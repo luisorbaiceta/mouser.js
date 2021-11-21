@@ -1,6 +1,6 @@
 import { getMouseOverVector } from './computations'
 
-type Reference<T extends HTMLElement = HTMLElement> = Document | Window | T
+export type Reference<T extends HTMLElement = HTMLElement> = Window | T
 
 type EventObject<T extends HTMLElement = HTMLElement> = {
   element: Reference<T>,
@@ -8,7 +8,7 @@ type EventObject<T extends HTMLElement = HTMLElement> = {
   function: (ev: any) => void
 }
 
-type PositionVector = {
+export type PositionVector = {
   x: number,
   y: number
 }
@@ -101,7 +101,7 @@ class Mouser {
     this.eventListeners.forEach(this.addEvent)
   }
 
-  private updateVector (ev) {
+  private updateVector (ev: MouseEvent) {
     if (this.shouldUpdate()) {
       // console.log(getMouseOverVector(ev))
       this.vector = getMouseOverVector(ev)
