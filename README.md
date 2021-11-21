@@ -1,6 +1,6 @@
-# Mouser &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/luisorbaiceta/mouser/LICENSE) [![npm version](https://img.shields.io/npm/v/mouser.js.svg?style=flat)](https://www.npmjs.com/package/mouser.js) ![CI](https://github.com/luisorbaiceta/mouser/actions/workflows/ci.yml/badge.svg?branch=main) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/luisorbaiceta/mouser/pulls)
+# Mouser.js &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/luisorbaiceta/mouser.js/LICENSE) [![npm version](https://img.shields.io/npm/v/mouser.js.svg?style=flat)](https://www.npmjs.com/package/mouser.js) ![CI](https://github.com/luisorbaiceta/mouser.js/actions/workflows/ci.yml/badge.svg?branch=main) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/luisorbaiceta/mouser.js/pulls)
 
-Mouser is a Javascript helper for mouse move animations. Import the function, pass a list of listeners, and they will
+Mouser.js is a Javascript helper for mouse move animations. Import the function, pass a list of listeners, and they will
 recieve a vector with the current mouse position ranging from 0 to 1. `{x: 0.23, y: 0.7}`
 
 * **Zero-Dependencies:** With a size of ~5kb.
@@ -118,7 +118,7 @@ Just send a PR or report an issue and I will be happy to review.
 
 ### Good First Issues
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/luisorbaiceta/mouser/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started.
+To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/luisorbaiceta/mouser.js/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started.
 
 ### License
 
