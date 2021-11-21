@@ -52,7 +52,10 @@ class Mouser {
 
   // SINGLETON
   public static Instance (params: MouserOptions) {
-    return this._instance || (this._instance = new this(params))
+    if (!params) {
+      return this._instance || (this._instance = new this())
+    }
+    return new this(params)
   }
 
   // PUBLIC METHODS
