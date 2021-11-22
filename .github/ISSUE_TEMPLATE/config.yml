@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Feature request (GitHub Discussions)
+    url: https://github.com/luisorbaiceta/mouser.js/discussions
+    about: Share your feature requests and ideas with us!
