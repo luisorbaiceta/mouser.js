@@ -52,7 +52,8 @@ function Example() {
   useEffect(() => {
     mouser({
       listeners: [setV]
-    })
+    });
+    return () => mouser.removeEventListeners(); // clear all registered events
   }, [setV]);
 
   return (
