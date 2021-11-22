@@ -3,7 +3,7 @@
 Mouser.js is a Javascript helper for mouse move animations. Import the function, pass a list of listeners, and they will
 recieve a vector with the current mouse position ranging from 0 to 1. `{x: 0.23, y: 0.7}`
 
-* **Zero-Dependencies:** With a size of ~5kb.
+* **Zero-Dependencies:** With a size of ~18kb (unpacked).
 * **Minimal:** Mouser.js just registers the listeners and pass the vector to them. What you do with those values is
 totally up to you.
 * **Use Anywhere:** Mouser.js doesn't make assumptions about your technology stack, so you can use mouser.js wherever  you want.
