@@ -117,6 +117,8 @@ The main purpose of this repository is to continue evolving Mouser.js, making it
 
 Just send a PR or report an issue and I will be happy to review.
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/luisorbaiceta)
+
 ### Good First Issues
 
 To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/luisorbaiceta/mouser.js/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started.
