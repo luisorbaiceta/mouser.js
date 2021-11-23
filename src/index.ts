@@ -50,6 +50,7 @@ class Mouser {
     this.listeners = listeners
 
     this.registerEvents()
+    this.dispatchEvents(this.vector)
   }
 
   // SINGLETON
