@@ -1,6 +1,6 @@
 {
   "name": "mouser.js",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "A Javascript helper for mouseover animations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
