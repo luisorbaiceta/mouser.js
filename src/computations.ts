@@ -8,8 +8,8 @@ function getMouseOverVector (event: MouseEvent): PositionVector {
   return {
     x: (Math.round((position.x / dimension.x) * 100) / 100),
     y: (Math.round((position.y / dimension.y) * 100) / 100),
-    gx: event.clientX,
-    gy: event.clientY
+    gx: event.clientX, // global x position
+    gy: event.clientY // global y position
   }
 }
 
