@@ -50,6 +50,7 @@ class Mouser {
     this.listeners = listeners
 
     this.registerEvents()
+    this.dispatchEvents(this.vector)
   }
 
   // SINGLETON
@@ -110,7 +111,11 @@ class Mouser {
 
   private registerEvents () {
     this.setEventList()
-    this.eventListeners.forEach(this.addEvent)
+    this.eventListeners.forEach(addEvent)
+
+    function addEvent (event: EventObject) {
+      event.element?.addEventListener(event.type, event.function)
+    }
   }
 
   private updateVector (ev: MouseEvent) {
@@ -121,12 +126,9 @@ class Mouser {
   }
 
   private setRestState () {
-    this.vector = { ...this.restState, gx: 0, gy: 0 }
+    // memo last global recorded value
+    this.vector = { ...this.vector, ...this.restState }
     this.dispatchEvents(this.vector)
-  }
-
-  private addEvent (event: EventObject) {
-    event.element?.addEventListener(event.type, event.function)
   }
 
   private clearEvents (eventListeners: EventObject[]) {
