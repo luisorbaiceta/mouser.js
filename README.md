@@ -1,7 +1,7 @@
 # Mouser.js &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/luisorbaiceta/mouser.js/LICENSE) [![npm version](https://img.shields.io/npm/v/mouser.js.svg?style=flat)](https://www.npmjs.com/package/mouser.js) ![CI](https://github.com/luisorbaiceta/mouser.js/actions/workflows/ci.yml/badge.svg?branch=main) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/luisorbaiceta/mouser.js/pulls)
 
 Mouser.js is a Javascript helper for mouse move animations. Import the function, pass a list of listeners, and they will
-recieve a vector with the current mouse position ranging from 0 to 1. `{x: 0.23, y: 0.7}`
+recieve a vector with the current mouse position ranging from 0 to 1 relative to the reference, and the global position (`gx and gy`). `{x: 0.23, y: 0.7, gx: 235, gy: 367}`
 
 * **Zero-Dependencies:** With a size of ~18kb (unpacked).
 * **Minimal:** Mouser.js just registers the listeners and pass the vector to them. What you do with those values is
@@ -38,7 +38,7 @@ mouser({
 })
 ```
 
-This example will print the vector `{x: number, y: number}` to the console whenever the effect is triggered. You'll notice that we used a simple `console.log` method, but you can pass to the listener any synchronous function...
+This example will print the vector `{x: number, y: number, gx: number, gy: number}` to the console whenever the effect is triggered. You'll notice that we used a simple `console.log` method, but you can pass to the listener any synchronous function...
 
 ### Using it with [React](https://reactjs.org/)
 
@@ -59,6 +59,7 @@ function Example() {
   return (
     <div>
       <p>x: {v.x} - y: {v.y}</p>
+      <p>global x: {v.gx} - global y: {v.gy}</p>
     </div>
   );
 }
@@ -83,9 +84,10 @@ const helper = mouser({
     refreshRate: number // defaults to 0
 
     // value that will be returned ONCE when mouse is out the reference
-    restState: { x: number, y: number }
+    restState: { x: number, y: number } // defaults to {x: 0, y: 0}
 })
 ```
+
 ### **Methods**
 
 ```ts
@@ -105,6 +107,14 @@ helper.addListener(listener: (v: {x: number, y: number}) => void);
 // IMPORTANT clears all event listeners to avoid memory leaks
 helper.removeEventListeners();
 ```
+### **Rest State Behaviour**
+
+While you can provide a rest state to the values relative to the reference, the global values, when effect is not active
+it will maintain the last recorded position.
+
+*NOTE: as we are still in alpha, the `restState` parameter behaviour might change in the feature*
+
+
 ## **Showcase**
 
 Send a PR to appear in this section.
