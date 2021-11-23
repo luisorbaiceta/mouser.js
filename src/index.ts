@@ -111,7 +111,11 @@ class Mouser {
 
   private registerEvents () {
     this.setEventList()
-    this.eventListeners.forEach(this.addEvent)
+    this.eventListeners.forEach(addEvent)
+
+    function addEvent (event: EventObject) {
+      event.element?.addEventListener(event.type, event.function)
+    }
   }
 
   private updateVector (ev: MouseEvent) {
