@@ -3,7 +3,7 @@ on:
     branches:
       - main
     paths:
-      - src
+      - src/**
 jobs:
   test:
     runs-on: ubuntu-latest
