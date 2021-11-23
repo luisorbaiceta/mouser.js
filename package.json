@@ -1,6 +1,6 @@
 {
   "name": "mouser.js",
-  "version": "0.1.5",
+  "version": "0.2.2",
   "description": "A Javascript helper for mouseover animations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luisorbaiceta/mouser.git"
+    "url": "git+https://github.com/luisorbaiceta/mouser.js.git"
   },
   "keywords": [
     "animation",
@@ -21,9 +21,9 @@
   "author": "Luis Orbaiceta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luisorbaiceta/mouser/issues"
+    "url": "https://github.com/luisorbaiceta/mouser.js/issues"
   },
-  "homepage": "https://github.com/luisorbaiceta/mouser#readme",
+  "homepage": "https://github.com/luisorbaiceta/mouser.js#readme",
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
