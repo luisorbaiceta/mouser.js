@@ -10,7 +10,9 @@ type EventObject<T extends HTMLElement = HTMLElement> = {
 
 export type PositionVector = {
   x: number,
-  y: number
+  y: number,
+  gx: number,
+  gy: number
 }
 
 type MouserOptions = {
@@ -28,7 +30,7 @@ class Mouser {
   private reference: Reference
   private refreshRate: number
   private eventListeners: EventObject[] = []
-  private restState: PositionVector
+  private restState: {x: number, y: number}
 
   private vector: PositionVector
 
@@ -44,7 +46,7 @@ class Mouser {
     this.reference = reference
     this.restState = restState
     this.refreshRate = refreshRate
-    this.vector = this.restState
+    this.vector = { ...this.restState, gx: 0, gy: 0 }
     this.listeners = listeners
 
     this.registerEvents()
@@ -119,7 +121,7 @@ class Mouser {
   }
 
   private setRestState () {
-    this.vector = this.restState
+    this.vector = { ...this.restState, gx: 0, gy: 0 }
     this.dispatchEvents(this.vector)
   }
 

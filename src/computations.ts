@@ -1,13 +1,15 @@
-import type { Reference } from './index'
+import type { Reference, PositionVector } from './index'
 
 // return current mouse position relative to reference element in listener
-function getMouseOverVector (event: MouseEvent) {
+function getMouseOverVector (event: MouseEvent): PositionVector {
   const position = getCursorPosition(event, event.currentTarget as HTMLElement)
   const dimension = getRefSize(event.currentTarget as HTMLElement)
 
   return {
     x: (Math.round((position.x / dimension.x) * 100) / 100),
-    y: (Math.round((position.y / dimension.y) * 100) / 100)
+    y: (Math.round((position.y / dimension.y) * 100) / 100),
+    gx: event.clientX,
+    gy: event.clientY
   }
 }
 
