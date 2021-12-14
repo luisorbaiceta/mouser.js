@@ -117,7 +117,11 @@ it will maintain the last recorded position.
 
 ## **Showcase**
 
-Send a PR to appear in this section.
+### Articles
+
+- [Adding a custom cursor to your Next.js Website](https://medium.com/@luisorbaiceta/adding-a-custom-cursor-to-your-next-js-website-59b9f3d6eea8)
+
+PRs welcome!
 
 ## **Contributing**
 
