@@ -53,7 +53,6 @@ class Mouser {
     this.dispatchEvents(this.vector)
   }
 
-  // SINGLETON
   public static Instance (params: MouserOptions) {
     if (!params) {
       return this._instance || (this._instance = new this())
@@ -61,7 +60,6 @@ class Mouser {
     return new this(params)
   }
 
-  // PUBLIC METHODS
   public addReference (el: Reference) {
     this.reference = el
   }
@@ -145,7 +143,6 @@ class Mouser {
   }
 }
 
-// export singleton
 export default function getMouserInstance (params:MouserOptions): Mouser {
   return Mouser.Instance(params)
 }
