@@ -91,7 +91,6 @@ class Mouser {
       }
     ]
 
-    // handle mouse leave for window
     if (this.reference instanceof Window) {
       this.eventListeners.push({
         element: document,
@@ -124,7 +123,6 @@ class Mouser {
   }
 
   private setRestState () {
-    // memo last global recorded value
     this.vector = { ...this.vector, ...this.restState }
     this.dispatchEvents(this.vector)
   }
@@ -135,7 +133,6 @@ class Mouser {
     })
   }
 
-  // determine element update based on given rate
   private shouldUpdate (): boolean {
     let counter = 0
     if (this.refreshRate === 0) return true
