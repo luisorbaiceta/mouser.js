@@ -23,6 +23,12 @@ import mouser from 'mouser.js'
 // your code
 ```
 
+or
+
+```js
+const mouser = require('mouser.js')
+```
+
 ## **Examples**
 
 Here is the first example to get you started:
